@@ -29,6 +29,7 @@
         ?>
 
         <form action="anggota_act.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= @$anggota['id'] ?>">
             <div class="row mb-4">
                 <label for="id_anggota" class="col-lg-2 col-form-label">ID Anggota: </label>
                 <div class="col-lg-4">
