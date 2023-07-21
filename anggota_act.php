@@ -17,19 +17,26 @@ if (@$_FILES['foto']['tmp_name']) {
 if (@$_GET['id']) {
     $id = $_GET['id'];
     // queary hapus data dari tabel tb_anggota
+
     $query = "DELETE FROM tb_anggota WHERE id = '$id' ";
 } else if (@$_POST['id']) {
     $id = $_POST['id'];
+
     // Query edit data 
-    $query = "UPDATE tb_anggota SET id_anggota = '$id_anggota' ,nama = '$nama',jenis_kelamin = '$jenis_kelamin', alamat = '$alamat', foto = '$foto', WHERE id = '$id'";
+    $query = "UPDATE tb_anggota SET 
+              id_anggota = '$id_anggota',
+              nama = '$nama',
+              jenis_kelamin = '$jenis_kelamin',
+              alamat = '$alamat', 
+              foto = '$foto',
+              WHERE id = '$id'";
+} else {
+
+    $query = "INSERT INTO tb_anggota (id_anggota, nama, jenis_kelamin, alamat, foto) 
+                VALUES ('$id_anggota', '$nama', '$jenis_kelamin', '$alamat', '$foto')";
 }
-// else {
 
-//     $query = "INSERT INTO tb_anggota (id_anggota, nama, jenis_kelamin, alamat, foto) 
-//                 VALUES ('$id_anggota', '$nama', '$jenis_kelamin', '$alamat', '$foto')";
-// }
-
-$result = mysqli_query($koneksi, $query);
+$result = mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
 
 
 if ($result) {

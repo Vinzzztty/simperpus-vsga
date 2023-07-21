@@ -15,8 +15,6 @@
         <div class="row">
             <div class="col-lg-12 text-center mt-5">
                 <h1>Daftar Anggota</h1>
-                <a href="anggota_add.php" class="btn btn-primary mb-3">Tambah Anggota</a>
-                <a href="anggota_lap.php" class="btn btn-primary mb-3">Cetak Laporan</a>
             </div>
         </div>
         <div class="row">
@@ -29,7 +27,6 @@
                         <th>Jenis Kelamin</th>
                         <th>Alamat</th>
                         <th>Foto</th>
-                        <th>Menu</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,12 +49,6 @@
                             <?php
                             echo "<td><img src='public/" . $row['foto'] . "' width='100'></td>";
                             ?>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="anggota_add.php?id=<?= $row['id'] ?>" class="btn btn-warning">Edit</a>
-                                    <a href="anggota_act.php?id=<?= $row['id'] ?>" class="btn btn-danger">Hapus</a>
-                                </div>
-                            </td>
 
                         </tr>
                     <?php
@@ -69,6 +60,9 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="./src/js/script.js"></script>
+    <script>
+        window.print()
+    </script>
 
 
 </body>
